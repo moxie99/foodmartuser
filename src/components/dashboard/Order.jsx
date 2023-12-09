@@ -39,7 +39,7 @@ const Order = () => {
                         myOrder.products?.map((p, i) => <div key={i}>
                             <div className='flex gap-5 justify-start items-center text-slate-600'>
                                 <div className='flex gap-2'>
-                                    <img className='w-[55px] h-[55px]' src={p.images[0]} alt="image" />
+                                    <img className='w-[55px] h-[55px]' src={p.images[0]} alt="img" />
                                     <div className='flex text-sm flex-col justify-start items-start'>
                                         <Link>{p.name}</Link>
                                         <p>
@@ -49,7 +49,7 @@ const Order = () => {
                                     </div>
                                 </div>
                                 <div className='pl-4'>
-                                    <h2 className='text-md text-orange-500'>${p.price - Math.floor((p.price * p.discount) / 100)}</h2>
+                                    <h2 className='text-md text-orange-500'>NGN{p.price - Math.floor((p.price * p.discount) / 100)}</h2>
                                     <p>{p.price}</p>
                                     <p>-{p.discount}%</p>
                                 </div>

@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import api from '../../api/api';
+import toast from 'react-hot-toast';
 
 export const place_order = createAsyncThunk(
   'order/place_order',
@@ -13,7 +14,7 @@ export const place_order = createAsyncThunk(
     items,
   }) => {
     try {
-      const { data } = await api.post('/home/order/palce-order', {
+      const { data } = await api.post('/home/order/place-order', {
         price,
         products,
         shipping_fee,
@@ -30,6 +31,7 @@ export const place_order = createAsyncThunk(
         },
       });
       console.log(data);
+      toast.success(data.message);
       return true;
     } catch (error) {
       console.log(error.response);

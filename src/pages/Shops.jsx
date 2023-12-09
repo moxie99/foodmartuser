@@ -25,7 +25,7 @@ const Shops = () => {
     const [filter, setFilter] = useState(true)
     const [category, setCategory] = useState('')
     const [state, setState] = useState({ values: [priceRange.low, priceRange.high] })
-    const [rating, setRatingQ] = useState('')
+    const [rating, setRating] = useState('')
     const [sortPrice, setSortPrice] = useState('')
 
     useEffect(() => {
@@ -59,7 +59,7 @@ const Shops = () => {
     }, [state.values[0], state.values[1], category, rating, pageNumber, sortPrice])
 
     const resetRating = () => {
-        setRatingQ('')
+        setRating('')
         dispatch(query_products({
             low: state.values[0],
             high: state.values[1],
@@ -72,7 +72,7 @@ const Shops = () => {
     return (
         <div>
             <Headers />
-            <section className='bg-[url("http://localhost:3001/shop.gif")] h-[220px] mt-6 bg-cover bg-no-repeat relative bg-left'>
+            <section className='bg-[url("http://localhost:3000/shop.gif")] h-[220px] mt-6 bg-cover bg-no-repeat relative bg-left'>
                 <div className='absolute left-0 top-0 w-full h-full bg-[#2422228a]'>
                     <div className='w-[85%] md:w-[80%] sm:w-[90%] lg:w-[90%] h-full mx-auto'>
                         <div className='flex flex-col justify-center gap-1 items-center h-full w-full text-white'>
@@ -121,41 +121,41 @@ const Shops = () => {
                                     )}
                                 />
                                 <div>
-                                    <span className='text-red-500 font-bold text-lg'>${Math.floor(state.values[0])} - ${Math.floor(state.values[1])}</span>
+                                    <span className='text-red-500 font-bold text-lg'>NGN{Math.floor(state.values[0])} - NGN{Math.floor(state.values[1])}</span>
                                 </div>
                             </div>
                             <div className='py-3 flex flex-col gap-4'>
                                 <h2 className='text-3xl font-bold mb-3 text-slate-600'>Rating</h2>
                                 <div className='flex flex-col gap-3'>
-                                    <div onClick={() => setRatingQ(5)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
+                                    <div onClick={() => setRating(5)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
                                         <span><AiFillStar /></span>
                                         <span><AiFillStar /></span>
                                         <span><AiFillStar /></span>
                                         <span><AiFillStar /></span>
                                         <span><AiFillStar /></span>
                                     </div>
-                                    <div onClick={() => setRatingQ(4)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
+                                    <div onClick={() => setRating(4)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
                                         <span><AiFillStar /></span>
                                         <span><AiFillStar /></span>
                                         <span><AiFillStar /></span>
                                         <span><AiFillStar /></span>
                                         <span><CiStar /></span>
                                     </div>
-                                    <div onClick={() => setRatingQ(3)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
+                                    <div onClick={() => setRating(3)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
                                         <span><AiFillStar /></span>
                                         <span><AiFillStar /></span>
                                         <span><AiFillStar /></span>
                                         <span><CiStar /></span>
                                         <span><CiStar /></span>
                                     </div>
-                                    <div onClick={() => setRatingQ(2)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
+                                    <div onClick={() => setRating(2)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
                                         <span><AiFillStar /></span>
                                         <span><AiFillStar /></span>
                                         <span><CiStar /></span>
                                         <span><CiStar /></span>
                                         <span><CiStar /></span>
                                     </div>
-                                    <div onClick={() => setRatingQ(1)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
+                                    <div onClick={() => setRating(1)} className='text-orange-500 flex justify-start items-start gap-2 text-xl cursor-pointer'>
                                         <span><AiFillStar /></span>
                                         <span><CiStar /></span>
                                         <span><CiStar /></span>

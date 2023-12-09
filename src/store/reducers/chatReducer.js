@@ -4,6 +4,7 @@ import api from '../../api/api';
 export const add_friend = createAsyncThunk(
   'chat/add_friend',
   async (info, { fulfillWithValue, rejectWithValue }) => {
+    console.log(info);
     try {
       const { data } = await api.post(
         '/chat/customer/add-customer-friend',
@@ -70,7 +71,7 @@ export const chatReducer = createSlice({
       }
       state.my_friends = tempFriends;
       state.fd_messages = [...state.fd_messages, payload.message];
-      state.successMessage = ' message send success';
+      state.successMessage = ' message sent successfully';
     },
   },
 });

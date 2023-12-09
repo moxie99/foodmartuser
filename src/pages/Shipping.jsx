@@ -49,7 +49,7 @@ const Shipping = () => {
     return (
         <div>
             <Headers />
-            <section className='bg-[url("http://localhost:3000/images/banner/order.jpg")] h-[220px] mt-6 bg-cover bg-no-repeat relative bg-left'>
+            <section className='bg-[url("http://localhost:3000/order.jpg")] h-[220px] mt-6 bg-cover bg-no-repeat relative bg-left'>
                 <div className='absolute left-0 top-0 w-full h-full bg-[#2422228a]'>
                     <div className='w-[85%] md:w-[80%] sm:w-[90%] lg:w-[90%] h-full mx-auto'>
                         <div className='flex flex-col justify-center gap-1 items-center h-full w-full text-white'>
@@ -123,11 +123,12 @@ const Shipping = () => {
                                                 <span className='text-slate-600 text-sm'>{state.address} {state.province} {state.city} {state.area}</span>
                                                 <span onClick={() => setRes(false)} className='text-indigo-500 cursor-pointer'> change</span>
                                             </p>
-                                            <p className='text-slate-600 text-sm'>Email to sheikhfarid@gmail.com</p>
+                                            <p className='text-slate-600 text-sm'>Email to foodmart@gmail.com</p>
                                         </div>
                                     }
                                 </div>
                                 {
+                                    products && Array.isArray(products) &&
                                     products.map((p, i) => <div key={i} className='flex bg-white p-4 flex-col gap-2'>
                                         <div className='flex justify-start items-center'>
                                             <h2 className='text-md text-slate-600'>{p.shopName}</h2>
@@ -145,8 +146,8 @@ const Shipping = () => {
                                                 </div>
                                                 <div className='flex justify-end w-5/12 sm:w-full sm:mt-3'>
                                                     <div className='pl-4 sm:pl-0'>
-                                                        <h2 className='text-lg text-orange-500'>${pt.productInfo.price - Math.floor((pt.productInfo.price * pt.productInfo.discount) / 100)}</h2>
-                                                        <p className='line-through'>${pt.productInfo.price}</p>
+                                                        <h2 className='text-lg text-orange-500'>NGN{pt.productInfo.price - Math.floor((pt.productInfo.price * pt.productInfo.discount) / 100)}</h2>
+                                                        <p className='line-through'>NGN{pt.productInfo.price}</p>
                                                         <p>-{pt.productInfo.discount}%</p>
                                                     </div>
                                                 </div>
@@ -162,19 +163,19 @@ const Shipping = () => {
                                     <h2 className='text-xl font-semibold'>Order Summary</h2>
                                     <div className='flex justify-between items-center'>
                                         <span>Items Total({price})</span>
-                                        <span>${price}</span>
+                                        <span>NGN{price}</span>
                                     </div>
                                     <div className='flex justify-between items-center'>
                                         <span>Delivery Fee</span>
-                                        <span>${shipping_fee}</span>
+                                        <span>NGN{shipping_fee}</span>
                                     </div>
                                     <div className='flex justify-between items-center'>
                                         <span>Total Payment</span>
-                                        <span>${price + shipping_fee}</span>
+                                        <span>NGN{price + shipping_fee}</span>
                                     </div>
                                     <div className='flex justify-between items-center'>
                                         <span>Total</span>
-                                        <span>${price + shipping_fee}</span>
+                                        <span>NGN{price + shipping_fee}</span>
                                     </div>
                                     <button onClick={placeOrder} disabled={res ? false : true} className={`px-5 py-[6px] rounded-sm hover:shadow-orange-500/20 hover:shadow-lg ${res ? 'bg-orange-500' : 'bg-orange-300'} text-sm text-white uppercase`}>Place Order</button>
                                 </div>

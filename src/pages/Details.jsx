@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react'
 import Headers from '../components/Headers'
 import Footer from '../components/Footer'
@@ -13,7 +15,7 @@ import { Pagination } from 'swiper/modules'
 import Ratings from '../components/Ratings'
 import { AiFillHeart } from 'react-icons/ai'
 import { FaFacebookF, FaLinkedin } from 'react-icons/fa'
-import { AiFillGithub, AiOutlineTwitter } from 'react-icons/ai'
+import {  AiOutlineTwitter, AiOutlineInstagram } from 'react-icons/ai'
 import Reviews from '../components/Reviews'
 import { get_product } from '../store/reducers/homeReducer'
 import { add_to_card, messageClear, add_to_wishlist } from '../store/reducers/cardReducer'
@@ -23,6 +25,7 @@ const Details = () => {
 
     const navigate = useNavigate()
     const { slug } = useParams()
+    
     const dispatch = useDispatch()
     const { product, relatedProducts, moreProducts } = useSelector(state => state.home)
     const { userInfo } = useSelector(state => state.auth)
@@ -214,9 +217,9 @@ const Details = () => {
                             <div className='text-2xl text-red-500 font-bold flex gap-3'>
                                 {
                                     product.discount !== 0 ? <>
-                                        <h2 className='line-through'>${product.price}</h2>
-                                        <h2>${product.price - Math.floor((product.price * product.discount) / 100)} (-{product.discount}%)</h2>
-                                    </> : <h2>Price : ${product.price}</h2>
+                                        <h2 className='line-through'>NGN{product.price}</h2>
+                                        <h2>NGN{product.price - Math.floor((product.price * product.discount) / 100)} (-{product.discount}%)</h2>
+                                    </> : <h2>Price : NGN{product.price}</h2>
                                 }
                             </div>
                             <div className='text-slate-600'>
@@ -261,7 +264,7 @@ const Details = () => {
                                             <a className='w-[38px] h-[38px] hover:bg-[#7fad39] hover:text-white flex justify-center items-center bg-purple-500 rounded-full text-white' href="#"><FaLinkedin /></a>
                                         </li>
                                         <li>
-                                            <a className='w-[38px] h-[38px] hover:bg-[#7fad39] hover:text-white flex justify-center items-center bg-blue-500 rounded-full text-white' href="#"><AiFillGithub /></a>
+                                            <a className='w-[38px] h-[38px] hover:bg-[#7fad39] hover:text-white flex justify-center items-center bg-blue-500 rounded-full text-white' href="#"><AiOutlineInstagram /></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -388,4 +391,4 @@ const Details = () => {
     )
 }
 
-export default Details
+export default Details;

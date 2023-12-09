@@ -48,17 +48,17 @@ const Headers = () => {
                         <ul className='flex justify-start items-center gap-8'>
                             <li className='flex relative justify-center items-center gap-2 text-sm after:absolute after:h-[18px] after:w-[1px] after:bg-[#afafaf] after:-right-[16px]'>
                                 <span><GrMail /></span>
-                                <span>pelumi@gmail.com</span>
+                                <span>foodmartsupport@gmail.com</span>
                             </li>
                             <span>FoodMart</span>
                         </ul>
                         <div>
                             <div className='flex justify-center items-center gap-10'>
                                 <div className='flex justify-center items-center gap-4'>
-                                    <a href="#"><FaFacebookF /></a>
-                                    <a href="#"><AiOutlineTwitter /></a>
+                                    <a href="https://www.facebook.com/profile.php?id=61553712732877&mibextid=ZbWKwL" target='_blank' rel="noreferrer"><FaFacebookF /></a>
+                                    <a href="https://x.com/FoodMart_ex?t=gCbcccHfH0OoRAg35qn3Cw&s=09" target='_blank' rel="noreferrer"><AiOutlineTwitter /></a>
                                     <a href="#"><FaLinkedinIn /></a>
-                                    <a href="#"><AiFillInstagram /></a>
+                                    <a href="https://instagram.com/foodmart_ex?igshid=NzZlODBkYWE4Ng==" target='_blank' rel="noreferrer"><AiFillInstagram /></a>
                                 </div>
                                 <div className='flex group cursor-pointer text-slate-800 text-sm justify-center items-center gap-1 relative after:h-[18px] after:w-[1px] after:bg-[#afafaf] after:-right-[16px] after:absolute before:absolute before:h-[18px] before:bg-[#afafaf] before:w-[1px] before:-left-[20px]'>
                                     <img src={language} alt="" />

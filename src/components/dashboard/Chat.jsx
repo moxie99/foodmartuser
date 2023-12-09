@@ -26,13 +26,14 @@ const Chat = () => {
     useEffect(() => {
         socket.emit('add_user', userInfo.id, userInfo)
     }, [])
-
     useEffect(() => {
         dispatch(add_friend({
             sellerId: sellerId || "",
             userId: userInfo.id
         }))
     }, [sellerId])
+
+
 
     const send = () => {
         if (text) {
@@ -109,7 +110,7 @@ const Chat = () => {
                                     {
                                         activeSeller.some(c => c.sellerId === currentFd.fdId) && <div className='w-[10px] h-[10px] rounded-full bg-green-500 absolute right-0 bottom-0'></div>
                                     }
-                                    <img src="http://localhost:3000/images/user.png" alt="" />
+                                    <img src={user} alt="" />
                                 </div>
                                 <span>{currentFd.name}</span>
                             </div>
@@ -120,7 +121,7 @@ const Chat = () => {
                                             if (currentFd?.fdId !== m.receverId) {
                                                 return (
                                                     <div key={i} ref={scrollRef} className='w-full flex gap-2 justify-start items-center text-[14px]'>
-                                                        <img className='w-[30px] h-[30px] ' src="http://localhost:3000/images/user.png" alt="" />
+                                                        <img className='w-[30px] h-[30px] ' src={user} alt="" />
                                                         <div className='p-2 bg-purple-500 text-white rounded-md'>
                                                             <span>{m.message}</span>
                                                         </div>
@@ -129,7 +130,7 @@ const Chat = () => {
                                             } else {
                                                 return (
                                                     <div key={i} ref={scrollRef} className='w-full flex gap-2 justify-end items-center text-[14px]'>
-                                                        <img className='w-[30px] h-[30px] ' src="http://localhost:3000/images/user.png" alt="" />
+                                                        <img className='w-[30px] h-[30px] ' src={user} alt="" />
                                                         <div className='p-2 bg-cyan-500 text-white rounded-md'>
                                                             <span>{m.message}</span>
                                                         </div>
