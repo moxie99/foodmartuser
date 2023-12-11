@@ -6,7 +6,9 @@ import axios from 'axios'
 import { useState } from 'react'
 import CheckoutForm from './CheckoutForm'
 
-const stripePromise = loadStripe('pk_test_51Nk8Y4F0B89ncn3xWB6ZN3GsbVIVL7Jqfa3jxtIOpPkKHcleHZw4EMPJKd4cRwm34ZARBeYmAWwu3VxyYL1gb6OT00UKNSvfvb')
+const stripePromise = loadStripe(
+  'pk_test_51LitpmKqWMMSEQ98rxp830vDIqq2Rcob1AaozXZJ3g6xJNBIH7mFXtk0fa3T8PXCjezsTtTEY1gJu3B5yAJvs3cM00Hdr1TN2R'
+);
 const Stripe = ({ price, orderId }) => {
     const [clientSecret, setClientSecret] = useState('')
     const apperance = {

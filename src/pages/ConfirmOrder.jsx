@@ -6,7 +6,9 @@ import { loadStripe } from '@stripe/stripe-js'
 import { error } from '../assets/images'
 import { success } from '../assets/images'
 const load = async () => {
-    return await loadStripe('pk_test_51Nk8Y4F0B89ncn3xWB6ZN3GsbVIVL7Jqfa3jxtIOpPkKHcleHZw4EMPJKd4cRwm34ZARBeYmAWwu3VxyYL1gb6OT00UKNSvfvb')
+    return await loadStripe(
+      'pk_test_51LitpmKqWMMSEQ98rxp830vDIqq2Rcob1AaozXZJ3g6xJNBIH7mFXtk0fa3T8PXCjezsTtTEY1gJu3B5yAJvs3cM00Hdr1TN2R'
+    );
 }
 
 const ConfirmOrder = () => {
@@ -69,18 +71,36 @@ const ConfirmOrder = () => {
     }, [message])
 
     return (
-        <div className='w-screeen h-screen flex justify-center items-center flex-col gap-4'>
-            {
-                (message === 'failed' || message === 'processing') ? <>
-                    <img src={error} alt="error logo" />
-                    <Link className='px-5 py-2 bg-green-500 rounded-sm text-white' to='/dashboard/my-orders'>Back to Dashboard</Link>
-                </> : message === 'succeeded' ? loader ? <FadeLoader /> : <>
-                    <img src={success} alt="error logo" />
-                    <Link className='px-5 py-2 bg-green-500 rounded-sm text-white' to='/dashboard/my-orders'>Back to Dashboard</Link>
-                </> : <FadeLoader />
-            }
-        </div>
-    )
+      <div className='w-screeen h-screen flex justify-center items-center flex-col gap-4'>
+        {message === 'failed' || message === 'processing' ? (
+          <>
+            <img src={error} alt='error logo' />
+            <Link
+              className='px-5 py-2 bg-green-500 rounded-sm text-white'
+              to='/dashboard/my-orders'
+            >
+              Back to Dashboard
+            </Link>
+          </>
+        ) : message === 'succeeded' ? (
+          loader ? (
+            <FadeLoader />
+          ) : (
+            <>
+              <img src={success} alt='success logo' />
+              <Link
+                className='px-5 py-2 bg-green-500 rounded-sm text-white'
+                to='/dashboard/my-orders'
+              >
+                Back to Dashboard
+              </Link>
+            </>
+          )
+        ) : (
+          <FadeLoader />
+        )}
+      </div>
+    );
 }
 
 export default ConfirmOrder
